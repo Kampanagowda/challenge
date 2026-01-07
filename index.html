@@ -1,56 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Only For You ❤️</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- SCREEN 1 -->
-    <div class="container" id="screen1">
-      <h1>Welcome 😏</h1>
-      <p>Solve this riddle to continue:</p>
+<head>
+  <meta charset="UTF-8">
+  <title>Enter If You Dare 😈</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-      <div class="riddle">
-        I’m always with you,<br />
-        I hear your secrets,<br />
-        I light up when you touch me.<br /><br />
-        What am I?
-      </div>
+<!-- SCREEN 1 : HORROR INTRO -->
+<div class="container" id="screen1">
+  <h1>Oh look who's here!!! 😈</h1>
 
-      <input type="text" id="riddleAnswer" placeholder="Your answer here" />
-      <button onclick="checkRiddle()">Submit</button>
-    </div>
+  <p class="spicy-text">
+    The one who doesn’t care about his girlfriend!!!
+  </p>
 
-    <!-- SCREEN 2 -->
-    <div class="container hidden" id="screen2">
-      <h1>Mini Game 🎯</h1>
-      <p>Click the heart <b>10 times</b></p>
+  <p class="danger-text">
+    ⚠️ Your girlfriend is in danger now!!!<br><br>
+    If you love her, pass the hurdles and save her 💔
+  </p>
 
-      <button id="heartBtn" onclick="clickHeart()">❤️</button>
-      <p id="clickCounter">0 / 10</p>
-    </div>
+  <button onclick="showScreen(2)">Enter The Horror House 🏚️</button>
+</div>
 
-    <!-- SCREEN 3 -->
-    <div class="container hidden" id="screen3">
-      <h1>Patience Test ⏳</h1>
-      <p>Wait until the countdown ends…</p>
-      <div id="timer">10</div>
-    </div>
+<!-- SCREEN 2 : MINI GAME -->
+<div class="container hidden" id="screen2">
+  <h1>First Test ❤️</h1>
+  <p>Click the heart <b>10 times</b> to prove your love</p>
 
-    <!-- SCREEN 4 -->
-    <div class="container hidden" id="screen4">
-      <h1>You Passed 😍</h1>
+  <button id="heartBtn" onclick="clickHeart()">❤️</button>
+  <p id="clickCounter">0 / 10</p>
+</div>
 
-      <img src="photo.jpg" class="photo" />
+<!-- SCREEN 3 : COUNTDOWN -->
+<div class="container hidden" id="screen3">
+  <h1>Final Test ⏳</h1>
+  <p>Don’t panic… just wait 😏</p>
+  <div id="timer">10</div>
+</div>
 
-      <p>This photo is only for you ❤️</p>
+<!-- SCREEN 4 : FINAL -->
+<div class="container hidden" id="screen4">
+  <h1>You Saved Her 😍</h1>
 
-      <a id="emailBtn">
-        <button>Send This To My Email 💌</button>
-      </a>
-    </div>
+  <img src="photo.jpg" class="photo">
 
-    <script src="script.js"></script>
-  </body>
+  <p>
+    Congratulations 😌<br>
+    Your girlfriend is safe… for now ❤️
+  </p>
+
+  <a id="emailBtn">
+    <button>Send This To My Email 💌</button>
+  </a>
+</div>
+
+<script src="script.js"></script>
+</body>
 </html>
