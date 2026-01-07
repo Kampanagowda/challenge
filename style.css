@@ -3,14 +3,12 @@ body {
   color: red;
   font-family: monospace;
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
   margin-top: 60px;
-}
-
-.hidden {
-  display: none;
 }
 
 button {
@@ -19,14 +17,21 @@ button {
   color: white;
   border: none;
   border-radius: 8px;
+  cursor: pointer;
+}
+
+.spicy {
+  color: #ff4d6d;
+  font-size: 20px;
 }
 
 .danger {
   color: crimson;
   font-weight: bold;
+  font-size: 18px;
 }
 
-/* GAME */
+/* GAME AREA */
 .game {
   width: 300px;
   height: 200px;
@@ -73,4 +78,5 @@ button {
 .photo {
   width: 250px;
   border-radius: 15px;
+  margin-top: 20px;
 }
