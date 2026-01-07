@@ -22,7 +22,7 @@ function nextScreen(n) {
 =========================== */
 function checkRiddle() {
   const ans = document.getElementById("riddleAnswer").value.toLowerCase();
-  if (ans.includes("house")) {
+  if (ans.includes("candle")) {
     nextScreen(2);
   } else {
     document.getElementById("scream").play();
@@ -105,3 +105,4 @@ function choiceHorror(isCorrect) {
     showScaryPopup("Wrong door! She screams 😱");
   }
 }
+
