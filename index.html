@@ -2,29 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Horror House 😈</title>
+  <title>Horror Challenge 🧟</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- SOUND EFFECTS -->
+<!-- SOUNDS -->
 <audio id="scream" src="scream.mp3"></audio>
 <audio id="heartbeat" src="heartbeat.mp3" loop></audio>
-<audio id="jumpSound" src="jump.mp3"></audio>
 
-<!-- SCREEN 0 -->
+<!-- SCREEN 0: INTRO -->
 <div class="container" id="screen0">
   <h1>Oh look who's here 😈</h1>
   <p class="spicy">The one who doesn’t care about his girlfriend!!!</p>
   <p class="danger">
     ⚠️ Your girlfriend is in danger!<br>
-    Pass the hurdles and save her 💀
+    Pass the horror challenges to save her 💀
   </p>
   <button onclick="nextScreen(1)">Enter The Horror House 🏚️</button>
 </div>
 
-<!-- SCREEN 1 -->
+<!-- SCREEN 1: RIDDLE -->
 <div class="container" id="screen1">
   <h1>Riddle of Fear 🧩</h1>
   <p>
@@ -36,31 +35,42 @@
   <button onclick="checkRiddle()">Answer</button>
 </div>
 
-<!-- SCREEN 2 -->
+<!-- SCREEN 2: COUNTDOWN TERROR -->
 <div class="container" id="screen2">
-  <h1>Run or Die 🏃‍♂️</h1>
-  <p>Tap anywhere (or press SPACE) to jump</p>
-
-  <div class="game">
-    <div id="player"></div>
-    <div id="obstacle"></div>
-  </div>
+  <h1>Countdown Terror ⏳</h1>
+  <p>Click/Tap rapidly to stop the timer and save her!</p>
+  <p id="terrorCounter">10</p>
+  <button id="saveBtn">SAVE HER</button>
 </div>
 
-<!-- SCREEN 3 -->
+<!-- SCREEN 3: FAKE HORROR BUTTON -->
 <div class="container" id="screen3">
-  <h1>Don’t Blink ⏳</h1>
-  <p id="timer">10</p>
+  <h1>Fake Horror Button 💀</h1>
+  <p>Click the button to save her…</p>
+  <button id="fakeBtn">DO NOT PRESS</button>
 </div>
 
-<!-- SCREEN 4 -->
+<!-- SCREEN 4: PASSWORD PUZZLE -->
 <div class="container" id="screen4">
+  <h1>Password Puzzle 🔒</h1>
+  <p>Type the secret password to move forward:</p>
+  <input type="text" id="passwordInput" placeholder="Password">
+  <button onclick="checkPassword()">Unlock</button>
+</div>
+
+<!-- SCREEN 5: CHOICE HORROR -->
+<div class="container" id="screen5">
+  <h1>Choice Horror 🚪</h1>
+  <p>Choose the correct door to save her!</p>
+  <button onclick="choiceHorror(true)">Door 1</button>
+  <button onclick="choiceHorror(false)">Door 2</button>
+</div>
+
+<!-- SCREEN 6: FINAL REWARD -->
+<div class="container" id="screen6">
   <h1>You Saved Her 😍</h1>
   <img src="photo.jpg" class="photo">
   <p>Your reward ❤️</p>
-  <a id="emailBtn">
-    <button>Send This To My Email 💌</button>
-  </a>
 </div>
 
 <script src="script.js"></script>
