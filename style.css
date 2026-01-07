@@ -9,6 +9,7 @@ body {
 
 .container {
   margin-top: 60px;
+  display: none; /* HIDE ALL SCREENS BY DEFAULT */
 }
 
 button {
