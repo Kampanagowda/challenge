@@ -9,7 +9,7 @@ body {
 
 .container {
   margin-top: 60px;
-  display: none; /* HIDE ALL SCREENS BY DEFAULT */
+  display: none; /* hide all screens by default */
 }
 
 button {
@@ -19,6 +19,7 @@ button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  margin: 10px;
 }
 
 .spicy {
@@ -32,52 +33,33 @@ button {
   font-size: 18px;
 }
 
-/* GAME AREA */
-.game {
-  width: 300px;
-  height: 200px;
-  border: 2px solid red;
-  margin: auto;
-  position: relative;
-  overflow: hidden;
-}
-
-#player {
-  width: 40px;
-  height: 40px;
-  background: white;
-  position: absolute;
-  bottom: 0;
-  left: 20px;
-}
-
-.jump {
-  animation: jump 0.5s;
-}
-
-@keyframes jump {
-  0% { bottom: 0; }
-  50% { bottom: 100px; }
-  100% { bottom: 0; }
-}
-
-#obstacle {
-  width: 30px;
-  height: 30px;
-  background: red;
-  position: absolute;
-  bottom: 0;
-  left: 100%;
-  animation: move 1.5s infinite linear;
-}
-
-@keyframes move {
-  0% { left: 100%; }
-  100% { left: -30px; }
-}
-
 .photo {
   width: 250px;
   border-radius: 15px;
   margin-top: 20px;
+}
+
+/* POPUP SCARY EFFECT */
+.popup {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: black;
+  color: red;
+  font-size: 22px;
+  padding: 20px;
+  border: 3px solid red;
+  border-radius: 10px;
+  z-index: 9999;
+  text-align: center;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  25% { transform: translate(-50%, -50%) rotate(5deg); }
+  50% { transform: translate(-50%, -50%) rotate(-5deg); }
+  75% { transform: translate(-50%, -50%) rotate(5deg); }
+  100% { transform: translate(-50%, -50%) rotate(0deg); }
 }
