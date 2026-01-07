@@ -33,6 +33,12 @@ button {
   font-size: 18px;
 }
 
+.hint {
+  color: pink;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
 .photo {
   width: 250px;
   border-radius: 15px;
