@@ -1,12 +1,16 @@
-/* HIDE ALL SCREENS ON PAGE LOAD */
+/* ==========================
+   INITIALIZE
+=========================== */
 window.onload = () => {
   document.querySelectorAll(".container").forEach(c => {
-    c.style.display = "none";
+    c.style.display = "none"; // hide all
   });
-  document.getElementById("screen0").style.display = "block";
+  document.getElementById("screen0").style.display = "block"; // show first
 };
 
-/* FUNCTION TO MOVE TO NEXT SCREEN */
+/* ==========================
+   NEXT SCREEN FUNCTION
+=========================== */
 function nextScreen(n) {
   document.querySelectorAll(".container").forEach(c => {
     c.style.display = "none";
@@ -17,8 +21,9 @@ function nextScreen(n) {
   if (n === 3) startTimer();
 }
 
-/* ======================== */
-/* RIDDLE LOGIC */
+/* ==========================
+   RIDDLE
+=========================== */
 function checkRiddle() {
   const ans = document.getElementById("riddleAnswer").value.toLowerCase();
   if (ans.includes("house")) {
@@ -29,8 +34,9 @@ function checkRiddle() {
   }
 }
 
-/* ======================== */
-/* JUMP GAME LOGIC */
+/* ==========================
+   JUMP GAME
+=========================== */
 const player = document.getElementById("player");
 const obstacle = document.getElementById("obstacle");
 let gameInterval;
@@ -43,16 +49,23 @@ function jump() {
   }
 }
 
-/* DESKTOP: SPACE BAR */
+/* SPACE BAR FOR DESKTOP */
 document.addEventListener("keydown", e => {
   if (e.code === "Space") jump();
 });
 
-/* MOBILE + DESKTOP TAP ON GAME */
-const gameArea = document.getElementById("screen2");
-gameArea.addEventListener("click", jump);
-gameArea.addEventListener("touchstart", jump);
+/* TAP / CLICK FOR MOBILE AND DESKTOP */
+const gameArea = document.querySelector(".game");
+gameArea.addEventListener("click", e => {
+  e.preventDefault(); // PREVENT any page reload
+  jump();
+});
+gameArea.addEventListener("touchstart", e => {
+  e.preventDefault(); // PREVENT mobile page reload
+  jump();
+});
 
+/* START GAME */
 function startGame() {
   gameInterval = setInterval(() => {
     const playerBottom = parseInt(getComputedStyle(player).bottom);
@@ -71,8 +84,9 @@ function startGame() {
   }, 15000); // survive 15 seconds
 }
 
-/* ======================== */
-/* COUNTDOWN TIMER */
+/* ==========================
+   TIMER
+=========================== */
 function startTimer() {
   let time = 10;
   const timer = document.getElementById("timer");
@@ -91,8 +105,9 @@ function startTimer() {
   }, 1000);
 }
 
-/* ======================== */
-/* EMAIL BUTTON */
+/* ==========================
+   EMAIL BUTTON
+=========================== */
 function setupEmail() {
   document.getElementById("emailBtn").href =
     "mailto:?subject=I survived the horror 😈&body=I passed every test and saved you ❤️";
