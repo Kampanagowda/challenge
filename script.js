@@ -1,14 +1,5 @@
 let clicks = 0;
 
-function checkRiddle() {
-  const answer = document.getElementById("riddleAnswer").value.toLowerCase();
-  if (answer.includes("phone") || answer.includes("mobile")) {
-    showScreen(2);
-  } else {
-    alert("Wrong answer 😏 Try again");
-  }
-}
-
 function clickHeart() {
   clicks++;
   document.getElementById("clickCounter").innerText = clicks + " / 10";
@@ -36,11 +27,13 @@ function startCountdown() {
 }
 
 function setupEmail() {
-  const subject = encodeURIComponent("I unlocked your surprise ❤️");
+  const subject = encodeURIComponent("I saved my girlfriend 😍");
   const body = encodeURIComponent(
-    "Hey ❤️\n\nI completed all your challenges 😏\n" +
-      "This photo was my reward.\n\n" +
-      "Sending it to myself so I never lose it 💕"
+    "Hey ❤️\n\n" +
+    "I entered the horror house 😈\n" +
+    "Passed all the hurdles\n" +
+    "And saved you 💕\n\n" +
+    "This photo is my reward 😌"
   );
 
   document.getElementById("emailBtn").href =
@@ -48,7 +41,7 @@ function setupEmail() {
 }
 
 function showScreen(num) {
-  document.querySelectorAll(".container").forEach((div) => {
+  document.querySelectorAll(".container").forEach(div => {
     div.classList.add("hidden");
   });
 
