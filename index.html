@@ -1,43 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Horror House 😈</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- SOUND EFFECTS -->
 <audio id="scream" src="scream.mp3"></audio>
 <audio id="heartbeat" src="heartbeat.mp3" loop></audio>
 <audio id="jumpSound" src="jump.mp3"></audio>
 
-<!-- LEVEL 0 -->
+<!-- SCREEN 0 -->
 <div class="container" id="screen0">
   <h1>Oh look who's here 😈</h1>
-  <p>You don’t care about your girlfriend!!!</p>
+  <p class="spicy">The one who doesn’t care about his girlfriend!!!</p>
   <p class="danger">
-    Your girlfriend is in danger 💀<br>
-    Pass the tests to save her…
+    ⚠️ Your girlfriend is in danger!<br>
+    Pass the hurdles and save her 💀
   </p>
-  <button onclick="next(1)">Enter Horror House 🏚️</button>
+  <button onclick="nextScreen(1)">Enter The Horror House 🏚️</button>
 </div>
 
-<!-- LEVEL 1 -->
-<div class="container hidden" id="screen1">
-  <h1>Riddle of Death 🧩</h1>
+<!-- SCREEN 1 -->
+<div class="container" id="screen1">
+  <h1>Riddle of Fear 🧩</h1>
   <p>
     I have a heart that doesn’t beat,<br>
-    I have a home but no sleep.<br>
+    I have a home but I don’t sleep.<br>
     What am I?
   </p>
-  <input id="riddle">
+  <input type="text" id="riddleAnswer" placeholder="Your answer">
   <button onclick="checkRiddle()">Answer</button>
 </div>
 
-<!-- LEVEL 2 -->
-<div class="container hidden" id="screen2">
-  <h1>Run Or Die 🏃‍♂️</h1>
-  <p>Press SPACE to jump</p>
+<!-- SCREEN 2 -->
+<div class="container" id="screen2">
+  <h1>Run or Die 🏃‍♂️</h1>
+  <p>Tap anywhere (or press SPACE) to jump</p>
 
   <div class="game">
     <div id="player"></div>
@@ -45,20 +47,19 @@
   </div>
 </div>
 
-<!-- LEVEL 3 -->
-<div class="container hidden" id="screen3">
+<!-- SCREEN 3 -->
+<div class="container" id="screen3">
   <h1>Don’t Blink ⏳</h1>
   <p id="timer">10</p>
 </div>
 
-<!-- LEVEL 4 -->
-<div class="container hidden" id="screen4">
+<!-- SCREEN 4 -->
+<div class="container" id="screen4">
   <h1>You Saved Her 😍</h1>
   <img src="photo.jpg" class="photo">
   <p>Your reward ❤️</p>
-
   <a id="emailBtn">
-    <button>Send To My Email 💌</button>
+    <button>Send This To My Email 💌</button>
   </a>
 </div>
 
