@@ -11,10 +11,10 @@ window.onload = () => {
 =========================== */
 function nextScreen(n) {
   document.querySelectorAll(".container").forEach(c => c.style.display = "none");
-  document.getElementById("screen" + n).style.display = "block";
+  const screen = document.getElementById("screen" + n);
+  screen.style.display = "block";
 
   if (n === 2) startCountdownTerror();
-  if (n === 3) setupFakeButton();
 }
 
 /* ==========================
@@ -45,41 +45,35 @@ function showScaryPopup(msg) {
    COUNTDOWN TERROR
 =========================== */
 function startCountdownTerror() {
+  const screen2 = document.getElementById("screen2");
+  screen2.style.display = "block";
+
   let counter = 10;
   const counterEl = document.getElementById("terrorCounter");
   const saveBtn = document.getElementById("saveBtn");
 
-  const interval = setInterval(() => {
+  counterEl.innerText = counter;
+
+  if (window.terrorInterval) clearInterval(window.terrorInterval);
+
+  window.terrorInterval = setInterval(() => {
     counter--;
     counterEl.innerText = counter;
+
     if (counter <= 0) {
-      clearInterval(interval);
+      clearInterval(window.terrorInterval);
       document.getElementById("scream").play();
       showScaryPopup("She is gone 💀");
       setTimeout(() => nextScreen(3), 2000);
     }
   }, 1000);
 
-  saveBtn.onclick = () => {
+  // Button click/tap decreases counter
+  saveBtn.onclick = saveBtn.ontouchstart = (e) => {
+    if (e) e.preventDefault();
     counter -= 2;
     if (counter < 0) counter = 0;
     counterEl.innerText = counter;
-  };
-}
-
-/* ==========================
-   FAKE HORROR BUTTON
-=========================== */
-function setupFakeButton() {
-  const fakeBtn = document.getElementById("fakeBtn");
-  fakeBtn.onclick = () => {
-    document.body.style.background = "red";
-    document.getElementById("scream").play();
-    showScaryPopup("She screamed 😱");
-    setTimeout(() => {
-      document.body.style.background = "black";
-      nextScreen(4);
-    }, 2000);
   };
 }
 
@@ -88,9 +82,9 @@ function setupFakeButton() {
 =========================== */
 function checkPassword() {
   const input = document.getElementById("passwordInput").value.toLowerCase();
-  const password = "emir"; // example: her name backwards
+  const password = "alka"; // YOUR PASSWORD
   if (input === password) {
-    nextScreen(5);
+    nextScreen(4);
   } else {
     document.getElementById("scream").play();
     showScaryPopup("Wrong password 😱🔪💀");
@@ -102,7 +96,10 @@ function checkPassword() {
 =========================== */
 function choiceHorror(isCorrect) {
   if (isCorrect) {
-    nextScreen(6);
+    nextScreen(5); // final reward
+    const music = document.getElementById("achievement");
+    music.currentTime = 0;
+    music.play();
   } else {
     document.getElementById("scream").play();
     showScaryPopup("Wrong door! She screams 😱");
