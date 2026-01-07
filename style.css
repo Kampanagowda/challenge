@@ -1,0 +1,62 @@
+body {
+  background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+  color: white;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+}
+
+.container {
+  margin-top: 70px;
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  color: #ff4d6d;
+}
+
+.riddle {
+  margin: 20px;
+  font-style: italic;
+}
+
+input {
+  padding: 10px;
+  width: 220px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 12px 22px;
+  background: #ff4d6d;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff2f55;
+}
+
+#heartBtn {
+  font-size: 40px;
+  background: none;
+}
+
+#timer {
+  font-size: 50px;
+  margin-top: 20px;
+}
+
+.photo {
+  width: 260px;
+  border-radius: 18px;
+  margin: 20px 0;
+  box-shadow: 0 0 15px rgba(255, 77, 109, 0.6);
+}

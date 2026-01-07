@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Only For You ❤️</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- SCREEN 1 -->
+    <div class="container" id="screen1">
+      <h1>Welcome 😏</h1>
+      <p>Solve this riddle to continue:</p>
+
+      <div class="riddle">
+        I’m always with you,<br />
+        I hear your secrets,<br />
+        I light up when you touch me.<br /><br />
+        What am I?
+      </div>
+
+      <input type="text" id="riddleAnswer" placeholder="Your answer here" />
+      <button onclick="checkRiddle()">Submit</button>
+    </div>
+
+    <!-- SCREEN 2 -->
+    <div class="container hidden" id="screen2">
+      <h1>Mini Game 🎯</h1>
+      <p>Click the heart <b>10 times</b></p>
+
+      <button id="heartBtn" onclick="clickHeart()">❤️</button>
+      <p id="clickCounter">0 / 10</p>
+    </div>
+
+    <!-- SCREEN 3 -->
+    <div class="container hidden" id="screen3">
+      <h1>Patience Test ⏳</h1>
+      <p>Wait until the countdown ends…</p>
+      <div id="timer">10</div>
+    </div>
+
+    <!-- SCREEN 4 -->
+    <div class="container hidden" id="screen4">
+      <h1>You Passed 😍</h1>
+
+      <img src="photo.jpg" class="photo" />
+
+      <p>This photo is only for you ❤️</p>
+
+      <a id="emailBtn">
+        <button>Send This To My Email 💌</button>
+      </a>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
