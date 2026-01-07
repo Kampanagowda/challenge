@@ -2,23 +2,19 @@
    INITIALIZE
 =========================== */
 window.onload = () => {
-  document.querySelectorAll(".container").forEach(c => {
-    c.style.display = "none"; // hide all
-  });
-  document.getElementById("screen0").style.display = "block"; // show first
+  document.querySelectorAll(".container").forEach(c => c.style.display = "none");
+  document.getElementById("screen0").style.display = "block";
 };
 
 /* ==========================
-   NEXT SCREEN FUNCTION
+   NEXT SCREEN
 =========================== */
 function nextScreen(n) {
-  document.querySelectorAll(".container").forEach(c => {
-    c.style.display = "none";
-  });
+  document.querySelectorAll(".container").forEach(c => c.style.display = "none");
   document.getElementById("screen" + n).style.display = "block";
 
-  if (n === 2) startGame();
-  if (n === 3) startTimer();
+  if (n === 2) startCountdownTerror();
+  if (n === 3) setupFakeButton();
 }
 
 /* ==========================
@@ -30,85 +26,85 @@ function checkRiddle() {
     nextScreen(2);
   } else {
     document.getElementById("scream").play();
-    alert("Wrong 😈 She screams...");
+    showScaryPopup("Your girlfriend is being stabbed 😱🔪💀");
   }
 }
 
 /* ==========================
-   JUMP GAME
+   SCARY POPUP
 =========================== */
-const player = document.getElementById("player");
-const obstacle = document.getElementById("obstacle");
-let gameInterval;
-
-function jump() {
-  if (!player.classList.contains("jump")) {
-    document.getElementById("jumpSound").play();
-    player.classList.add("jump");
-    setTimeout(() => player.classList.remove("jump"), 500);
-  }
+function showScaryPopup(msg) {
+  const popup = document.createElement("div");
+  popup.className = "popup";
+  popup.innerText = msg;
+  document.body.appendChild(popup);
+  setTimeout(() => document.body.removeChild(popup), 2000);
 }
 
-/* SPACE BAR FOR DESKTOP */
-document.addEventListener("keydown", e => {
-  if (e.code === "Space") jump();
-});
+/* ==========================
+   COUNTDOWN TERROR
+=========================== */
+function startCountdownTerror() {
+  let counter = 10;
+  const counterEl = document.getElementById("terrorCounter");
+  const saveBtn = document.getElementById("saveBtn");
 
-/* TAP / CLICK FOR MOBILE AND DESKTOP */
-const gameArea = document.querySelector(".game");
-gameArea.addEventListener("click", e => {
-  e.preventDefault(); // PREVENT any page reload
-  jump();
-});
-gameArea.addEventListener("touchstart", e => {
-  e.preventDefault(); // PREVENT mobile page reload
-  jump();
-});
-
-/* START GAME */
-function startGame() {
-  gameInterval = setInterval(() => {
-    const playerBottom = parseInt(getComputedStyle(player).bottom);
-    const obsLeft = parseInt(getComputedStyle(obstacle).left);
-
-    if (obsLeft < 60 && obsLeft > 0 && playerBottom < 40) {
+  const interval = setInterval(() => {
+    counter--;
+    counterEl.innerText = counter;
+    if (counter <= 0) {
+      clearInterval(interval);
       document.getElementById("scream").play();
-      alert("You died 😵 Try again");
-      location.reload();
-    }
-  }, 10);
-
-  setTimeout(() => {
-    clearInterval(gameInterval);
-    nextScreen(3);
-  }, 15000); // survive 15 seconds
-}
-
-/* ==========================
-   TIMER
-=========================== */
-function startTimer() {
-  let time = 10;
-  const timer = document.getElementById("timer");
-  document.getElementById("heartbeat").play();
-
-  const t = setInterval(() => {
-    timer.innerText = time;
-    time--;
-
-    if (time < 0) {
-      clearInterval(t);
-      document.getElementById("heartbeat").pause();
-      setupEmail();
-      nextScreen(4);
+      showScaryPopup("She is gone 💀");
+      setTimeout(() => nextScreen(3), 2000);
     }
   }, 1000);
+
+  saveBtn.onclick = () => {
+    counter -= 2;
+    if (counter < 0) counter = 0;
+    counterEl.innerText = counter;
+  };
 }
 
 /* ==========================
-   EMAIL BUTTON
+   FAKE HORROR BUTTON
 =========================== */
-function setupEmail() {
-  document.getElementById("emailBtn").href =
-    "mailto:?subject=I survived the horror 😈&body=I passed every test and saved you ❤️";
+function setupFakeButton() {
+  const fakeBtn = document.getElementById("fakeBtn");
+  fakeBtn.onclick = () => {
+    document.body.style.background = "red";
+    document.getElementById("scream").play();
+    showScaryPopup("She screamed 😱");
+    setTimeout(() => {
+      document.body.style.background = "black";
+      nextScreen(4);
+    }, 2000);
+  };
+}
+
+/* ==========================
+   PASSWORD PUZZLE
+=========================== */
+function checkPassword() {
+  const input = document.getElementById("passwordInput").value.toLowerCase();
+  const password = "emir"; // example: her name backwards
+  if (input === password) {
+    nextScreen(5);
+  } else {
+    document.getElementById("scream").play();
+    showScaryPopup("Wrong password 😱🔪💀");
+  }
+}
+
+/* ==========================
+   CHOICE HORROR
+=========================== */
+function choiceHorror(isCorrect) {
+  if (isCorrect) {
+    nextScreen(6);
+  } else {
+    document.getElementById("scream").play();
+    showScaryPopup("Wrong door! She screams 😱");
+  }
 }
