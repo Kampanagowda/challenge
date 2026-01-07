@@ -11,10 +11,11 @@
 <!-- SOUNDS -->
 <audio id="scream" src="scream.mp3"></audio>
 <audio id="heartbeat" src="heartbeat.mp3" loop></audio>
+<audio id="achievement" src="achievement.mp3"></audio>
 
 <!-- SCREEN 0: INTRO -->
 <div class="container" id="screen0">
-  <h1>Oh look who's here 😈</h1>
+  <h1>Oh look who's here 🧟</h1>
   <p class="spicy">The one who doesn’t care about his girlfriend!!!</p>
   <p class="danger">
     ⚠️ Your girlfriend is in danger!<br>
@@ -43,31 +44,30 @@
   <button id="saveBtn">SAVE HER</button>
 </div>
 
-<!-- SCREEN 3: FAKE HORROR BUTTON -->
+<!-- SCREEN 3: PASSWORD PUZZLE -->
 <div class="container" id="screen3">
-  <h1>Fake Horror Button 💀</h1>
-  <p>Click the button to save her…</p>
-  <button id="fakeBtn">DO NOT PRESS</button>
-</div>
-
-<!-- SCREEN 4: PASSWORD PUZZLE -->
-<div class="container" id="screen4">
   <h1>Password Puzzle 🔒</h1>
   <p>Type the secret password to move forward:</p>
   <input type="text" id="passwordInput" placeholder="Password">
   <button onclick="checkPassword()">Unlock</button>
+
+  <!-- Hints -->
+  <p class="hint">
+    1. It's your future baby girl's name 👶<br>
+    2. It's hidden in both of your names 💌
+  </p>
 </div>
 
-<!-- SCREEN 5: CHOICE HORROR -->
-<div class="container" id="screen5">
+<!-- SCREEN 4: CHOICE HORROR -->
+<div class="container" id="screen4">
   <h1>Choice Horror 🚪</h1>
   <p>Choose the correct door to save her!</p>
   <button onclick="choiceHorror(true)">Door 1</button>
   <button onclick="choiceHorror(false)">Door 2</button>
 </div>
 
-<!-- SCREEN 6: FINAL REWARD -->
-<div class="container" id="screen6">
+<!-- SCREEN 5: FINAL REWARD -->
+<div class="container" id="screen5">
   <h1>You Saved Her 😍</h1>
   <img src="photo.jpg" class="photo">
   <p>Your reward ❤️</p>
