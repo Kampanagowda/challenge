@@ -1,21 +1,76 @@
-.spicy-text {
-  color: #ff2f55;
-  font-size: 18px;
-  margin-top: 20px;
+body {
+  background: black;
+  color: red;
+  font-family: monospace;
+  text-align: center;
 }
 
-.danger-text {
-  color: #ffb3c1;
-  margin: 20px;
+.container {
+  margin-top: 60px;
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  padding: 12px 20px;
+  background: darkred;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+
+.danger {
+  color: crimson;
   font-weight: bold;
 }
 
-body {
-  animation: flicker 3s infinite;
+/* GAME */
+.game {
+  width: 300px;
+  height: 200px;
+  border: 2px solid red;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes flicker {
-  0% { opacity: 1; }
-  50% { opacity: 0.95; }
-  100% { opacity: 1; }
+#player {
+  width: 40px;
+  height: 40px;
+  background: white;
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+}
+
+.jump {
+  animation: jump 0.5s;
+}
+
+@keyframes jump {
+  0% { bottom: 0; }
+  50% { bottom: 100px; }
+  100% { bottom: 0; }
+}
+
+#obstacle {
+  width: 30px;
+  height: 30px;
+  background: red;
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  animation: move 1.5s infinite linear;
+}
+
+@keyframes move {
+  0% { left: 100%; }
+  100% { left: -30px; }
+}
+
+.photo {
+  width: 250px;
+  border-radius: 15px;
 }
