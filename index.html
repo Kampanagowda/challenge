@@ -1,57 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Enter If You Dare 😈</title>
+  <title>Horror House 😈</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- SCREEN 1 : HORROR INTRO -->
-<div class="container" id="screen1">
-  <h1>Oh look who's here!!! 😈</h1>
+<audio id="scream" src="scream.mp3"></audio>
+<audio id="heartbeat" src="heartbeat.mp3" loop></audio>
+<audio id="jumpSound" src="jump.mp3"></audio>
 
-  <p class="spicy-text">
-    The one who doesn’t care about his girlfriend!!!
+<!-- LEVEL 0 -->
+<div class="container" id="screen0">
+  <h1>Oh look who's here 😈</h1>
+  <p>You don’t care about your girlfriend!!!</p>
+  <p class="danger">
+    Your girlfriend is in danger 💀<br>
+    Pass the tests to save her…
   </p>
-
-  <p class="danger-text">
-    ⚠️ Your girlfriend is in danger now!!!<br><br>
-    If you love her, pass the hurdles and save her 💔
-  </p>
-
-  <button onclick="showScreen(2)">Enter The Horror House 🏚️</button>
+  <button onclick="next(1)">Enter Horror House 🏚️</button>
 </div>
 
-<!-- SCREEN 2 : MINI GAME -->
+<!-- LEVEL 1 -->
+<div class="container hidden" id="screen1">
+  <h1>Riddle of Death 🧩</h1>
+  <p>
+    I have a heart that doesn’t beat,<br>
+    I have a home but no sleep.<br>
+    What am I?
+  </p>
+  <input id="riddle">
+  <button onclick="checkRiddle()">Answer</button>
+</div>
+
+<!-- LEVEL 2 -->
 <div class="container hidden" id="screen2">
-  <h1>First Test ❤️</h1>
-  <p>Click the heart <b>10 times</b> to prove your love</p>
+  <h1>Run Or Die 🏃‍♂️</h1>
+  <p>Press SPACE to jump</p>
 
-  <button id="heartBtn" onclick="clickHeart()">❤️</button>
-  <p id="clickCounter">0 / 10</p>
+  <div class="game">
+    <div id="player"></div>
+    <div id="obstacle"></div>
+  </div>
 </div>
 
-<!-- SCREEN 3 : COUNTDOWN -->
+<!-- LEVEL 3 -->
 <div class="container hidden" id="screen3">
-  <h1>Final Test ⏳</h1>
-  <p>Don’t panic… just wait 😏</p>
-  <div id="timer">10</div>
+  <h1>Don’t Blink ⏳</h1>
+  <p id="timer">10</p>
 </div>
 
-<!-- SCREEN 4 : FINAL -->
+<!-- LEVEL 4 -->
 <div class="container hidden" id="screen4">
   <h1>You Saved Her 😍</h1>
-
   <img src="photo.jpg" class="photo">
-
-  <p>
-    Congratulations 😌<br>
-    Your girlfriend is safe… for now ❤️
-  </p>
+  <p>Your reward ❤️</p>
 
   <a id="emailBtn">
-    <button>Send This To My Email 💌</button>
+    <button>Send To My Email 💌</button>
   </a>
 </div>
 
